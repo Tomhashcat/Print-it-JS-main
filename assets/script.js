@@ -34,7 +34,7 @@ for (var i = 0; i < slides.length; i++) {
 	//CREER UNE DIV POUR CHAQUE ELEMENT DU TABLEAU
 	var div = document.createElement("div");
 
-	div.textContent = slides[i];
+	
 	//AJOUT LA CLASS ("dot")
 	div.classList.add('dot');
 	//SI ACTIVE ALORS AJOUTE CLASS("DOT_SELECTED")
@@ -54,13 +54,15 @@ for (var i = 0; i < slides.length; i++) {
 
 
 //Listener
+
+//QUAND CLICK GAUCHE, INDEX -1 REVIENS A ZERO
 leftArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
 	updateSlide();
 	
 
 });
-
+//QUAND CLICK DROIT, INDEX +1 REVIENS A ZERO
 rightArrow.addEventListener('click', function () {
 	indexCurrent= (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
 	updateSlide();
@@ -75,6 +77,8 @@ function changeSlide(next) {
 	}
 	updateSlide();
   }
+
+  //MET  A JOUR L'IMAGE ET LE POINT
 function updateSlide() {
 	slideImage.src = "assets/images/slideshow/" + slides[indexCurrent].image;
 	var dots= document.querySelectorAll('.dots .dot');
