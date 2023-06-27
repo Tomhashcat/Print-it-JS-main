@@ -21,13 +21,26 @@ const slides = [
 //Variable
 var leftArrow = document.querySelector(".arrow_left");
 var rightArrow = document.querySelector(".arrow_right");
+var dots = document.querySelector(".dots");
+var slide= document.querySelector(".banner-img");
+
 
 
 
 //var dot = document.createElement(".dot");
 
+for(var i = 0; i< slides.length; i++){
+	var div= document.createElement("div");
 
-var dotSelected = document.querySelector(".dot_selected");
+	div.textContent = slides[i];
+
+
+	div.classList.add('dot');
+
+
+	dots.appendChild(div);
+}
+
 
 
 
@@ -44,6 +57,18 @@ function next(){
 function previous(){
 	console.log('left');
 };
+
+
+
+
+
+
+
+	
+
+	
+
+
 
 
 
