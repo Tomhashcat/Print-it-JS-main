@@ -22,7 +22,7 @@ const slides = [
 var leftArrow = document.querySelector(".arrow_left");
 var rightArrow = document.querySelector(".arrow_right");
 var dots = document.querySelector(".dots");
-var slideImage= document.querySelector(".banner-img");
+var slideImage = document.querySelector(".banner-img");
 var indexCurrent = 0;
 
 
@@ -34,7 +34,7 @@ for (var i = 0; i < slides.length; i++) {
 	//CREER UNE DIV POUR CHAQUE ELEMENT DU TABLEAU
 	var div = document.createElement("div");
 
-	
+
 	//AJOUT LA CLASS ("dot")
 	div.classList.add('dot');
 	//SI ACTIVE ALORS AJOUTE CLASS("DOT_SELECTED")
@@ -55,38 +55,43 @@ for (var i = 0; i < slides.length; i++) {
 
 //Listener
 
-//QUAND CLICK GAUCHE, INDEX -1 REVIENS A ZERO
+//QUAND CLICK , SI CLICK EXTREME GAUCHE/ REVIENS A LA DERNIERE POSITION DU TABLEAU SINON INVERSE
 leftArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
 	updateSlide();
-	
+
 
 });
 //QUAND CLICK DROIT, INDEX +1 REVIENS A ZERO
 rightArrow.addEventListener('click', function () {
-	indexCurrent= (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
+	indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
 	updateSlide();
-	
+
 })
 
 function changeSlide(next) {
 	if (next) {
-	  indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
+		indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
 	} else {
-	  indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
+		indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
 	}
 	updateSlide();
-  }
+}
 
-  //MET  A JOUR L'IMAGE ET LE POINT
+//MET  A JOUR L'IMAGE ET LE POINT
 function updateSlide() {
 	slideImage.src = "assets/images/slideshow/" + slides[indexCurrent].image;
-	var dots= document.querySelectorAll('.dots .dot');
 
-	dots.forEach(function (dot,index){
-		dot.classList.toggle('dot_selected', index ===indexCurrent)
+	var tagLineElement = document.querySelector('.tagLine');
+
+	tagLineElement.innerHTML = slides[indexCurrent].tagLine;
+
+	var dots = document.querySelectorAll('.dots .dot');
+
+	dots.forEach(function (dot, index) {
+		dot.classList.toggle('dot_selected', index === indexCurrent)
 	});
-	
+
 }
 
 function next() {
@@ -96,21 +101,21 @@ function previous() {
 	console.log('left');
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Compte le nombre d'élement de SLIDES
 for (var i = 0; i < slides.length; i++) {
 	console.log(slides[i]);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
