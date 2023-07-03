@@ -1,9 +1,6 @@
 const slides = [
 	
-	{
-		"image": "slide5.png",
-		"tagLine": "Super Thomas <span>découpe laser sur toi</span>"
-	},
+	
 	{
 		"image": "slide1.jpg",
 		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
@@ -34,7 +31,7 @@ var indexCurrent = 0;
 
 
 
-//var dot = document.createElement(".dot");
+
 
 for (var i = 0; i < slides.length; i++) {
 
