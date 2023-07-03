@@ -1,4 +1,9 @@
 const slides = [
+	
+	{
+		"image": "slide5.png",
+		"tagLine": "Super Thomas <span>découpe laser sur toi</span>"
+	},
 	{
 		"image": "slide1.jpg",
 		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
@@ -14,7 +19,9 @@ const slides = [
 	{
 		"image": "slide4.png",
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
-	}
+	},
+	
+	
 ];
 
 
@@ -44,7 +51,9 @@ for (var i = 0; i < slides.length; i++) {
 
 	dots.appendChild(div);
 }
+updateSlide();
 
+//FUNCTION ADD PREMIERE PLACE
 
 
 
@@ -101,10 +110,7 @@ function previous() {
 	console.log('left');
 };
 
-//Compte le nombre d'élement de SLIDES
-for (var i = 0; i < slides.length; i++) {
-	console.log(slides[i]);
-}
+
 
 
 
