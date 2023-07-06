@@ -1,6 +1,13 @@
+/**
+ * tableau slides
+ * @param {Array} slides
+ */
 const slides = [
-	
-	
+
+	{
+		"image": "slide5.png",
+		"tagLine": "Super Thomas <span>découpe laser sur toi</span>"
+	},
 	{
 		"image": "slide1.jpg",
 		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
@@ -17,74 +24,45 @@ const slides = [
 		"image": "slide4.png",
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	},
-	
-	
+
+
 ];
 
 
-//Variable
+/**
+ * creation des variables
+ * @param {obj} 
+ */
 var leftArrow = document.querySelector(".arrow_left");
 var rightArrow = document.querySelector(".arrow_right");
 var dots = document.querySelector(".dots");
 var slideImage = document.querySelector(".banner-img");
 var indexCurrent = 0;
 
-
-
-
-
-for (var i = 0; i < slides.length; i++) {
-
-	//CREER UNE DIV POUR CHAQUE ELEMENT DU TABLEAU
-	var div = document.createElement("div");
-
-
-	//AJOUT LA CLASS ("dot")
-	div.classList.add('dot');
-	//SI ACTIVE ALORS AJOUTE CLASS("DOT_SELECTED")
-	if (i === 0) {
-		div.classList.add('dot_selected');
-	}
-
-	dots.appendChild(div);
-}
-updateSlide();
-
-//FUNCTION ADD PREMIERE PLACE
-
-
-
-
-
-
-
-
-//Listener
-
-//QUAND CLICK , SI CLICK EXTREME GAUCHE/ REVIENS A LA DERNIERE POSITION DU TABLEAU SINON INVERSE
+/** 
+ * met un écouteur sur lefttArrow reviens au dernier index si fin du tableau
+ * @param {object} fleche de gauche
+ */
 leftArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
 	updateSlide();
 
 
 });
-//QUAND CLICK DROIT, INDEX +1 REVIENS A ZERO
+/**
+* met un écouteur sur rightArrow reviens à index 0 si fin du tableau
+* @param {object} fleche de droite
+*/
 rightArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
 	updateSlide();
 
 })
 
-function changeSlide(next) {
-	if (next) {
-		indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
-	} else {
-		indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
-	}
-	updateSlide();
-}
-
-//MET  A JOUR L'IMAGE ET LE POINT
+/**
+ * met à jour l'index , la tagline, et les dots.
+ * @param {func} update slide
+ */
 function updateSlide() {
 	slideImage.src = "assets/images/slideshow/" + slides[indexCurrent].image;
 
@@ -99,13 +77,57 @@ function updateSlide() {
 	});
 
 }
+/**
+ * creer une nouvelle div ainsi qu'un nouveau point. change la class dot/dot_selected.initialise l'index dans le tableaux grave à updateSlide 
+ * @param {func} init
+ */
+function init() {
+	for (var i = 0; i < slides.length; i++) {
 
-function next() {
-	console.log('right');
-};
-function previous() {
-	console.log('left');
-};
+		/**
+		 *  CREER UNE DIV POUR CHAQUE ELEMENT DU TABLEAU
+		 * @param {obj} div
+		 * */
+		var div = document.createElement("div");
+
+
+		/**
+		 * AJOUT LA CLASS ("dot")
+		 * @param {obj} dot
+		 */
+		div.classList.add('dot');
+		dots.appendChild(div);
+	}
+	updateSlide();
+}
+init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
