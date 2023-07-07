@@ -35,7 +35,7 @@ const slides = [
  */
 var leftArrow = document.querySelector(".arrow_left");
 var rightArrow = document.querySelector(".arrow_right");
-var dots = document.querySelector(".dots");
+var dots = document.querySelectorAll(".dots .dot");
 var slideImage = document.querySelector(".banner-img");
 var indexCurrent = 0;
 
@@ -77,29 +77,30 @@ function updateSlide() {
 	});
 
 }
+
+
+
+
+
 /**
  * creer une nouvelle div ainsi qu'un nouveau point. change la class dot/dot_selected.initialise l'index dans le tableaux grave à updateSlide 
  * @param {func} init
  */
 function init() {
+	var dotsContainer = document.querySelector('.dots');
+
 	for (var i = 0; i < slides.length; i++) {
+		// Créer un élément span pour chaque dot
+		var dot = document.createElement("span");
+		dot.classList.add('dot');
 
-		/**
-		 *  CREER UNE DIV POUR CHAQUE ELEMENT DU TABLEAU
-		 * @param {obj} div
-		 * */
-		var div = document.createElement("div");
-
-
-		/**
-		 * AJOUT LA CLASS ("dot")
-		 * @param {obj} dot
-		 */
-		div.classList.add('dot');
-		dots.appendChild(div);
+		// Ajouter le dot à dotsContainer
+		dotsContainer.appendChild(dot);
 	}
+
 	updateSlide();
 }
+
 init();
 
 
