@@ -97,6 +97,12 @@ function init() {
 		// Ajouter le dot à dotsContainer
 		dotsContainer.appendChild(dot);
 	}
+	if (slides.length<=1) {
+		dotsContainer.style.display = 'none';
+		
+			leftArrow.style.display = 'none';
+		  rightArrow.style.display= 'none';
+	}
 
 	updateSlide();
 }
