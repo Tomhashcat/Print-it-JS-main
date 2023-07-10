@@ -41,7 +41,7 @@ var indexCurrent = 0;
 
 /** 
  * met un écouteur sur lefttArrow reviens au dernier index si fin du tableau
- * @param {object} fleche de gauche
+ * @param {object, func} fleche de gauche
  */
 leftArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === 0) ? slides.length - 1 : indexCurrent - 1;
@@ -51,7 +51,7 @@ leftArrow.addEventListener('click', function () {
 });
 /**
 * met un écouteur sur rightArrow reviens à index 0 si fin du tableau
-* @param {object} fleche de droite
+* @param {object, func} fleche de droite
 */
 rightArrow.addEventListener('click', function () {
 	indexCurrent = (indexCurrent === slides.length - 1) ? 0 : indexCurrent + 1;
